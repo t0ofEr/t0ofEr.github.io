@@ -1,11 +1,11 @@
 export const addSpinnerToSubmitBtn = (btn) => {
-    btn.innerHtml = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
     btn.disabled = true;
 }
 
 export const removeSpinnerToSubmitBtn = (btn, innerTxt) => {
     btn.disabled = false;
-    btn.innerTxt = innerTxt;
+    btn.innerText = innerTxt;
 }
 
 export const validateField = (input, { minLength, maxLength, required, pattern }) => {

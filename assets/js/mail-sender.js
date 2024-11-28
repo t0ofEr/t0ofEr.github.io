@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, (error) => {
                     showPositionSwal("center", "error", error.text, false, 2500);
                 });
-            setTimeout(removeSpinnerToSubmitBtn(submitBtn), 2500);
+            setTimeout(() => removeSpinnerToSubmitBtn(submitBtn, 'Enviar Mensaje'), 2500);
         }
     });
 });

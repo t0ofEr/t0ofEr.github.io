@@ -23,9 +23,13 @@
   <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
   <!-- Main CSS File -->
   <link href="./assets/css/main.css" rel="stylesheet">
+  <!-- Main API -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <!-- Sweet Alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -267,35 +271,42 @@
           </div>
         </div>
 
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+        <form id="contact-form" method="post" class="email-form needs-validation" novalidate data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Tu nombre" required="">
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Tu correo" required="">
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Asunto" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Cargando</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
-
-              <button type="submit">Enviar Mensaje</button>
-            </div>
-
+      
+              <div class="col-md-6">
+                  <input id="name" type="text" name="name" class="form-control" placeholder="Tu nombre" required="" minlength="5" maxlength="255">
+                  <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                  <div class="valid-feedback">¡Todo listo!</div>
+              </div>
+      
+              <div class="col-md-6">
+                  <input id="email" type="email" class="form-control" name="email" placeholder="Tu correo" required="" minlength="10" maxlength="255">
+                  <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
+                  <div class="valid-feedback">¡Correo válido!</div>
+              </div>
+      
+              <div class="col-md-12">
+                  <input id="subject" type="text" class="form-control" name="subject" placeholder="Asunto" required="" minlength="5" maxlength="255">
+                  <div class="invalid-feedback">Por favor ingresa un asunto.</div>
+                  <div class="valid-feedback">¡Asunto agregado!</div>
+              </div>
+      
+              <div class="col-md-12">
+                  <textarea id="message" class="form-control" name="message" rows="6" placeholder="Mensaje" required="" minlength="20" maxlength="2000"></textarea>
+                  <div class="invalid-feedback">Por favor ingresa tu mensaje.</div>
+                  <div class="valid-feedback">¡Tu mensaje está listo!</div>
+              </div>
+      
+              <div class="col-md-12 text-center">
+                  <div class="loading">Cargando</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
+                  <button id="submit-btn" type="submit">Enviar Mensaje</button>
+              </div>
+      
           </div>
-        </form>
+      </form>      
 
       </div>
 
@@ -321,7 +332,6 @@
 
   <!-- Vendor JS Files -->
   <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="./assets/vendor/php-email-form/validate.js"></script>
   <script src="./assets/vendor/aos/aos.js"></script>
   <script src="./assets/vendor/typed.js/typed.umd.js"></script>
   <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -333,7 +343,10 @@
 
   <!-- Main JS File -->
   <script src="./assets/js/main.js"></script>
-
+  <!-- Mail -->
+  <script type="module" src="./assets/js/mail-sender.js"></script>
+  <script type="module" src="./assets/js/sweet-alert.js"></script>
+  <script type="module" src="./assets/config/config.js"></script>
 </body>
 
 </html>
